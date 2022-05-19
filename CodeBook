@@ -4,7 +4,20 @@ The data set that this code book explains is in tidy_data.txt file.
 
 The README.md file of this repository  has background on the data collected. 
 
-This Codebook is divided into a Data, Variable and transformation section:
+The data was treated as follows:
+
+The zip file containing the source data is located at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+
+The training and test sets were merged to create one data set, The measurements on the mean and standard deviation were obtained for each measurement, and the others were discarded.
+
+The activity identifiers (originally coded as integers between 1 and 6) were replaced with descriptive activity names.
+
+The variable names were replaced with descriptive variable names (e.g. tBodyAcc-mean()-X was expanded to timeDomainBodyAccelerometerMeanX)
+From the data set in step 4, the final data set was created with the average of each variable for each activity and each subject.
+
+The collection of the source data and the transformations listed above were implemented by the run_analysis.R R script (see README.md file for usage instructions).
+
+Important info: 
 
 The data "tidy_data.txt" is a text file, with  space-separated values. The first row contains the names of the variables, and the following rows contain the values of each of these variables.
 Rows contain 79 signal measurements ( in average) for a given subject and activity.
@@ -91,20 +104,5 @@ frequencyDomainBodyGyroscopeMagnitudeMean frequencyDomainBodyGyroscopeMagnitudeS
 
 frequencyDomainBodyGyroscopeJerkMagnitudeMean frequencyDomainBodyGyroscopeJerkMagnitudeStandardDeviation frequencyDomainBodyGyroscopeJerkMagnitudeMeanFrequency
 
-Transformations
 
-The zip file containing the source data is located at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
 
-The following transformations were applied to the source data:
-
-The training and test sets were merged to create one data set.
-
-The measurements on the mean and standard deviation (i.e. signals containing the strings mean and std) were extracted for each measurement, and the others were discarded.
-
-The activity identifiers (originally coded as integers between 1 and 6) were replaced with descriptive activity names (see Identifiers section).
-
-The variable names were replaced with descriptive variable names (e.g. tBodyAcc-mean()-X was expanded to timeDomainBodyAccelerometerMeanX), using the following set of rules: Special characters (i.e. (, ), and -) were removed The initial f and t were expanded to frequencyDomain and timeDomain respectively. Acc, Gyro, Mag, Freq, mean, and std were replaced with Accelerometer, Gyroscope, Magnitude, Frequency, Mean, and StandardDeviation respectively. Replaced (supposedly incorrect as per source's features_info.txt file) BodyBody with Body.
-
-From the data set in step 4, the final data set was created with the average of each variable for each activity and each subject.
-
-The collection of the source data and the transformations listed above were implemented by the run_analysis.R R script (see README.md file for usage instructions).
